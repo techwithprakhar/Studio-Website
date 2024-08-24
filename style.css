@@ -1,0 +1,321 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Freight Big Pro";
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+#main{
+    background-color: #000;
+}
+#loader{
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 99  ;
+    /* display:none;                  to be commented in final design */
+}
+
+ #yellow1{
+    height: 100%;
+    width: 100%;
+    background-color: #F5E41B;
+    position: absolute;
+    z-index: 8;
+
+}
+#yellow2{
+    height: 100%;
+    width: 100%;
+    background-color: #F5E41B;
+    position: absolute;
+    z-index: 7;
+
+}
+#loader video{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    object-fit:cover;
+    z-index: 6;
+}
+#loader h1{
+    font-size: 7vw;
+    font-weight: 100;
+    line-height: 5vw;
+    letter-spacing: -3px;
+    position: relative;
+    z-index: 9;
+}
+
+#nav{
+    position:absolute;
+    width:100%;
+    padding: 30px 50px;
+    z-index:10 ;
+}
+/* #nav svg path{
+    fill: #000;
+} */
+
+#page1{
+    height: 100vh;
+    width: 100%;
+    background-color: #F5E41B ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+#page1 h1{
+    font-size: 7vw;
+    font-weight: 100;
+    line-height: 5vw;
+    letter-spacing: -3px;
+}
+#page2{
+    height: 100vh;
+    width: 100%;
+    background-color: #000;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.elem{
+    /* background-color: red; */
+    width: 100%;
+    cursor: pointer; 
+    position: relative;
+    
+}
+.elem:hover .moving{
+    transform: translate(0,-45%) scaleY(1);
+}
+.elem:hover .moving .h5{
+    opacity: 1;
+}
+.elem:hover h2{
+    font-style: italic;
+}
+.elem .moving .blur{
+      position: absolute;
+      width: 35%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      background: linear-gradient(to right,#F5E41B ,#F5E41B ,#f5e31bf6 );
+      box-shadow: 10px 0px 20px 20px #F5E41B,-10px 0px 20px 100px #F5E41B;
+      height: 100%;
+      z-index: 8;
+}
+.elem h2{
+    font-size: 6.8vw;
+    text-transform:uppercase;
+    font-weight: 100;
+    line-height: 5vw;
+    /* transition: all ease 0.2s;
+    font-style: normal; */
+    position:relative;
+    z-index: 9;
+}
+.elem .moving{
+    background-color: #F5E41B;
+    width: 100%;
+    white-space: nowrap;
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-45%) scaleY(0);
+    overflow: hidden;
+    transition: all ease 0.3s;
+    padding: 8px 0;
+}
+.elem .moving .moving-in{
+    display: inline-block;
+    white-space: nowrap;
+    animation: moving ;
+    
+    animation-duration:5s ;
+    animation-iteration-count:infinite ;
+    animation-timing-function: linear;
+}
+.elem .moving .moving-in h5{
+    color: #000;
+    display: inline-block;
+    transition: all ease 0.3s;
+    transition-delay: 0.2s;
+    /* opacity: 0; */
+    font-size: 17px;
+    font-weight: 500;
+    font-family: gilroy;
+    text-transform: uppercase;
+    margin-right: 35px;
+}
+@keyframes moving{
+    from{
+        transform:translateX(0);
+    }
+    to {
+        transform:translateX(-100%);
+    }
+}
+
+#page3{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #FFF ;
+}
+
+.image-container{
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    flex-wrap: wrap;
+    /* overflow: auto; */
+    
+}
+
+.image-div{
+    /* height:40vw; */
+    width:27vw;
+    position: relative;
+    margin: 40px 20px;
+}
+.image-div img{
+    height: 100%;
+    width: 100%;
+    object-fit:cover;
+    object-position:center;       /*can be commented*/
+    transition: all ease 0.5s;
+    overflow: hidden;
+}
+.overlay{
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    opacity: 0;   /*added*/
+    z-index: 9;
+}
+.overlay p{
+    color: white;
+    text-transform: uppercase;
+    font-size: 2.5vw;
+    text-align: center;
+    line-height: 2.5vw;
+    transition: all ease 0.5s;
+    transition-delay: 0.2s;
+    opacity: 0;
+}
+.image-div:hover .overlay{
+    /* background-color:#000; */
+    opacity: 1;
+}
+.image-div:hover .overlay p{
+    opacity: 1;
+}
+.image-div:hover img{
+    scale: 0.9;
+}
+
+.footer{
+    height: 40vh;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    gap: 40px;
+    flex-direction: column;
+
+}
+.ico {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+.footer .ico h2{
+    font-family: gilroy;
+    text-transform: uppercase;
+    font-size: 1vw;
+    cursor: pointer;
+}
+.footer .foot{
+    height: 50%;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    padding: 30px;
+    font-size:20px;
+    cursor:pointer;
+    align-items: center;
+    color: white;
+}
+.foot .footnav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    
+    cursor:pointer;
+    gap: 30px;
+    font-size:20px;
+    text-transform: uppercase;
+    color: white;
+}
+@media (max-width:660px) {
+    .foot{
+        flex-direction: column;
+        
+       
+    }
+    .ico h2{
+        font-size: 20px;
+    }
+    .footer h2{
+        font-size: 15px;
+    }
+    .foot .footnav{
+        flex-direction: column;
+        margin: 1vh;
+        height: 100%;
+        gap: 1vh;
+    }
+    .image-div{
+        width: 90vw;
+        
+    }
+}
+@media (max-width:960px) and (min-width:661px) {
+    
+    .image-div{
+        width: 24vw;
+        
+    }
+}
